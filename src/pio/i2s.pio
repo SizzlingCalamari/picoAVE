@@ -6,7 +6,7 @@
 // 16 bits, msb first, right justified
 
 .wrap_target
-left:
+left_start:
     wait 0 pin 1
     wait 1 pin 1
     jmp pin, left_continue
@@ -14,13 +14,13 @@ left_end:
     mov x, isr
     jmp right_continue
 
-right:
+right_start:
     wait 0 pin 1
     wait 1 pin 1
     jmp pin, right_end
 right_continue:
     in pins, 1
-    jmp right
+    jmp right_start
 right_end:
     in x, 16
     push block
@@ -28,7 +28,7 @@ right_end:
 
 left_continue:
     in pins, 1
-    // jmp left
+    // jmp left_start
 .wrap
 
 % c-sdk {
