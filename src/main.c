@@ -20,6 +20,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "hardware/clocks.h"
 #include "hardware/structs/bus_ctrl.h"
 #include "hardware/vreg.h"
 #include "pico/multicore.h"
